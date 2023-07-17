@@ -1,24 +1,14 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
-
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// alert('я JS')
+// var name = prompt ("What is your name?")
+// alert('Hello ' + name)
+// let input=parseFloat(prompt('Ввидите число') as string)
+// alert("Число умноженное на два " + input*2)
+// let input = perFormance(prompt('Ввидите число') as string)
+// alert("Число возведенное во вторую степень",input**2)
+// let input=parseFloat(prompt('Ввидите число') as string)
+// alert("Число деленное на два " + input/2)
+// var a=2
+// var b=80
+// var c=a+b
+// alert("Уровнение: " + c)
