@@ -84,3 +84,16 @@ import './style.css'
 //     else if(age>60) console.log('вы очень постарели')
 // }
 // whoAreYou(age)
+
+
+
+
+
+
+
+//! LeetCode
+// class Solution {
+//     public int sum(int num1, int num2) {
+//         return num1 + num2;
+//     }
+// }
