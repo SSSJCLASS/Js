@@ -144,3 +144,14 @@ import './style.css'
 
 
 
+// var a = Number(prompt('Введите начальный диапозон',''));
+// var n = Number(prompt('Введите конечный диапозон',''));
+// var sum = 0;
+
+// while(a <= n){
+
+//     sum+=a;
+//     a++;
+// }
+// alert(sum)
+
