@@ -156,6 +156,7 @@ import './style.css'
 // alert(sum)
 
 
+<<<<<<< HEAD
 // <!-- <input id="num1" />
 
 
@@ -204,4 +205,18 @@ import './style.css'
 
 
 
+
+
+
+
+// alert('Введите 2 числа, что бы найти НОД');
+// let num1 = prompt('Введите первое число');
+// let num2 = prompt('Введите второе число');
+// let num3;
+
+// calc(num1,num2)
+// alert('НОД чисел' + num1 + 'и' + num2 + 'будет:' + num3)
+
+// function calc(a, b)
+// let c;
 
