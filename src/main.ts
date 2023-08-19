@@ -155,3 +155,53 @@ import './style.css'
 // }
 // alert(sum)
 
+
+// <!-- <input id="num1" />
+
+
+// 	<div id="operator_btns">
+// 	  <button id="plus" onclick="op='+'">+</button>
+// 	  <button id="minus" onclick="op='-'">-</button>
+// 	  <button id="times" onclick="op='*'">x</button>
+// 	  <button id="divide" onclick="op='/'">:</button>
+// 	</div>
+
+
+// 	<input id="num2" />
+// 	<br>
+
+
+// 	<button onclick="func()">Посчитать</button>
+
+//   <p id="result"></p>
+
+
+
+//   <script>
+//     var op 
+//         function func() {
+//       var result
+//       var num1 = Number(document.getElementById("num1").value)
+//       var num2 = Number(document.getElementById("num2").value)
+//       switch (op) {
+//         case '+':
+//           result = num1 + num2
+//           break
+//         case '-':
+//           result = num1 - num2
+//           break
+//         case '*':
+//           result = num1 * num2
+//           break
+//         case '/':
+//           result = num1 / num2
+//           break
+//       }
+//         document.getElementById("result").innerHTML = result
+//     }
+//   </script> -->
+
+
+
+
+
