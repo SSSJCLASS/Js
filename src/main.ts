@@ -156,7 +156,7 @@ import './style.css'
 // alert(sum)
 
 
-<<<<<<< HEAD
+
 // <!-- <input id="num1" />
 
 
