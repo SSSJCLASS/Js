@@ -225,7 +225,34 @@ import './style.css'
                                             // Практическая работа №5
 
 
-function factorial(n) { 
-    return (n != 1) ? n * factorial(n - 1) : 1;
-}
-alert( factorial(7) ); 
+// function factorial(n) { 
+//     return (n != 1) ? n * factorial(n - 1) : 1;
+// }
+// alert( factorial(5) ); 
+
+
+
+// function* makeRangeIterator(start = 0, end = 100, step = 1) {
+//     let iterationCount = 0;
+//     for (let i = start; i < end; i += step) {
+//         iterationCount++;
+//         yield i;
+//     }
+//     return iterationCount;
+// }
+
+// var r1_10 = makeRangeIterator(1, 10);
+
+
+// for (i of r1_10) {
+// console.log(i); 
+// }
+
+// var num = 10,
+// reverse = false;
+
+// if(!reverse) for( var i=0;i<num;i++) log(i);
+// else         while(num-- )      log(num);
+
+// function log( num:number ) { console.log( num ); }
+
