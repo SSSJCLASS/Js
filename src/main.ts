@@ -256,3 +256,14 @@ import './style.css'
 
 // function log( num:number ) { console.log( num ); }
 
+
+
+
+// var x = 54321
+// var y = 0
+// for(;x;x = Math.floor(x / 10)){
+//    y*= 10
+//    y+= x % 10
+
+// }
+// console.log(y);
