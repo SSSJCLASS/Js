@@ -274,6 +274,7 @@ import './style.css'
 // let uName = ''
 // let toDos = [] as string[]
 
+<<<<<<< HEAD
 // const appDiv = document.getElementById('app')
 // // if (appDiv) appDiv.innerHTML += `<p>Добро пожаловать на сайт</p>`
 // function render() {
@@ -306,6 +307,40 @@ import './style.css'
 //     if (appDiv) appDiv.appendChild(olElement)
 //   }
 // }
+
+const appDiv = document.getElementById('app')
+// if (appDiv) appDiv.innerHTML += `<p>Добро пожаловать на сайт</p>`
+function render() {
+    let isLogin = Boolean(uName)
+    if (appDiv) appDiv.innerHTML = ''
+    const pElelement = document.createElement('p')
+    pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
+    if (appDiv) appDiv.appendChild(pElelement) 
+    
+    const button = document.createElement('button')
+    button.textContent = isLogin ? 'LogOut' : 'Login'
+    button.addEventListener('click', ()=>{
+    uName = isLogin ? '' : 'Niko'
+    toDos = !isLogin ? ['проснуться', 'позавтракать', 'умыться', 'работать', 'лечь спать'] : []
+    render()
+    })
+    if (appDiv) appDiv.appendChild(button) 
+    if (isLogin) {
+    const olElement = document.createElement('ol')
+    // for (let i=0;i<toDos.length;i++) {
+    //   const listElement = document.createElement('li')
+    //   listElement.textContent = toDos[i]
+    //   olElement.appendChild(listElement)
+    // }
+    for (let el of toDos) {
+        const listElement = document.createElement('li')
+        listElement.textContent = el
+        olElement.appendChild(listElement)
+    }
+    if (appDiv) appDiv.appendChild(olElement)
+    }
+}
+
 
 // render()
 
