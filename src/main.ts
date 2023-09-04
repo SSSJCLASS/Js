@@ -282,12 +282,12 @@ import './style.css'
 //   if (appDiv) appDiv.innerHTML = ''
 //   const pElelement = document.createElement('p')
 //   pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
-<<<<<<< HEAD
+
 //   if (appDiv) appDiv.appendChild(pElelement) уощзщд
   
-=======
+
 //   if (appDiv) appDiv.appendChild(pElelement)   
->>>>>>> 453b2402646055c7c38a984b458b63c725e92948
+
 //   const button = document.createElement('button')
 //   button.textContent = isLogin ? 'LogOut' : 'Login'
 //   button.addEventListener('click', ()=>{
