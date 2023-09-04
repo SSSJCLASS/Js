@@ -282,7 +282,7 @@ import './style.css'
 //   if (appDiv) appDiv.innerHTML = ''
 //   const pElelement = document.createElement('p')
 //   pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
-//   if (appDiv) appDiv.appendChild(pElelement) 
+//   if (appDiv) appDiv.appendChild(pElelement) уощзщд
   
 //   const button = document.createElement('button')
 //   button.textContent = isLogin ? 'LogOut' : 'Login'
@@ -352,3 +352,15 @@ import './style.css'
 //   matorNumber: 23595
 // }
 // console.log(usr1)
+
+
+// let distance = prompt("Введите расстояние");
+// let speed = prompt("Введите среднюю скорость");
+
+// let timeInWay = distance/speed;
+
+// let timeInRest = (timeInWay%4 == 0)? (timeInWay/4 | 0) - 1: timeInWay/4| 0;
+
+// let timeTotal = distance/speed + timeInRest;
+
+// alert(`Общее время в пути Время в пути = ${timeTotal} часов`);
