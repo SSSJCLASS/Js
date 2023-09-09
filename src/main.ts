@@ -368,3 +368,60 @@ import './style.css'
 // let timeTotal = distance/speed + timeInRest;
 
 // alert(`Общее время в пути Время в пути = ${timeTotal} часов`);
+
+
+type Rect = {
+    x0:number,
+    y0:number,
+    x1:number,
+    y1:number,
+  }
+  
+  const rect:Rect = {
+    x0:50,
+    y0:50,
+    x1:100,
+    y1:100,
+  }
+  
+  const rectDiv = document.getElementById('rect')
+  function renderRect(rect:Rect) {
+    if (rectDiv) {
+      rectDiv.style.top = rect.y0 + 'px'
+      rectDiv.style.left = rect.x0 + 'px'
+      rectDiv.style.width = getRectWidth(rect) + 'px'
+      rectDiv.style.height = getRectHeight(rect) + 'px'
+    }
+  }
+  renderRect(rect)
+  
+
+
+  function showRectInfo(rect: Rect) {
+    console.log(`top-left (${rect.x0}, ${rect.y0}) bootom-rigth (${rect.x1}, ${rect.y1})`)
+  }
+  showRectInfo(rect)
+  
+  
+
+
+  
+  function getRectWidth(rect: Rect) {
+    return rect.x1 - rect.x0
+  }
+  
+  
+
+
+
+  function getRectHeight(rect: Rect) {
+    return rect.y1 - rect.y0
+  }
+
+
+
+ function changeRectWidthHeight(rect: Rect, x:number,y:number ){
+    changeRectHeight(rect, x)
+    changeRectHeight(rect, y)
+ }
+
