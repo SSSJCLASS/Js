@@ -370,6 +370,7 @@ import './style.css'
 // alert(`Общее время в пути Время в пути = ${timeTotal} часов`);
 
 
+
 let xz: any = 5
 xz = "Вася"
 
@@ -515,132 +516,145 @@ console.log(Object.entries(usr1)[2])
 // динаты левой верхней и правой нижней точек), и написать следу -
 // ющие функции для работы с таким объектом.
 
-type Rect = {
-    x0:number,
-    y0:number,
-    x1:number,
-    y1:number,
-}
-
-const rect:Rect = {
-    x0:50,
-    y0:50,
-    x1:100,
-    y1:100,
-}
-
-const rectDiv = document.getElementById('rect')
-
-const moveLeftTopButton = document.getElementById('moveLeftTop')
-moveLeftTopButton?.addEventListener('click', () => { changeRectPosition(rect, -10, -10) })
-const moveTopButton = document.getElementById('moveTop')
-moveTopButton?.addEventListener('click', () => { changeRectPositionY(rect, -10) })
-const moveRightTopButton = document.getElementById('moveRightTop')
-moveRightTopButton?.addEventListener('click', () => { changeRectPosition(rect, 10, -10) })
-const moveLeftButton = document.getElementById('moveLeft')
-moveLeftButton?.addEventListener('click', () => { changeRectPositionX(rect, -10) })
-const moveRightButton = document.getElementById('moveRight')
-moveRightButton?.addEventListener('click', () => { changeRectPositionX(rect, 10) })
-const moveLeftBottomButton = document.getElementById('moveLeftBottom')
-moveLeftBottomButton?.addEventListener('click', () => { changeRectPosition(rect, -10, 10) })
-const moveBottomButton = document.getElementById('moveBottom')
-moveBottomButton?.addEventListener('click', () => { changeRectPositionY(rect, 10) })
-const moveRightBottomButton = document.getElementById('moveRightBottom')
-moveRightBottomButton?.addEventListener('click', () => { changeRectPosition(rect, 10, 10) })
-
-const squeezeX = document.getElementById('squeezeX')
-squeezeX?.addEventListener('click', () => { changeRectWidth(rect, -10) })
-const expandX = document.getElementById('expandX')
-expandX?.addEventListener('click', () => { changeRectWidth(rect, 10) })
-const squeezeY = document.getElementById('squeezeY')
-squeezeY?.addEventListener('click', () => { changeRectHeight(rect, -10) })
-const expandY = document.getElementById('expandY')
-expandY?.addEventListener('click', () => { changeRectHeight(rect, 10) })
-
-
-console.log(rectDiv)
-function renderRect(rect:Rect) {
-    if (rectDiv) {
-    rectDiv.style.top = rect.y0 + 'px'
-    rectDiv.style.left = rect.x0 + 'px'
-    rectDiv.style.width = getRectWidth(rect) + 'px'
-    rectDiv.style.height = getRectHeight(rect) + 'px'
-    }
-}
-renderRect(rect)
 
 
 
-function showRectInfo(rect: Rect) {
-    console.log(`top-left (${rect.x0}, ${rect.y0}) bootom-rigth (${rect.x1}, ${rect.y1})`)
-}
-showRectInfo(rect)
-
-
-function getRectWidth(rect: Rect) {
-    return rect.x1 - rect.x0
-}
 
 
 
-function getRectHeight(rect: Rect) {
-    return rect.y1 - rect.y0
-}
 
 
 
-function getRectArea(rect: Rect) {
-    return getRectWidth(rect) * getRectHeight(rect)
-}
-console.log(`площадь прямоугольника ${getRectArea(rect)}px`)
 
 
 
-function getRectPerimetr(rect: Rect) {
-  return getRectWidth(rect) * 2 + getRectHeight(rect) * 2 
-}
-console.log(`периметр прямоугольника ${getRectPerimetr(rect)}px`)
+// type Rect = {
+//   x0:number,
+//   y0:number,
+//   x1:number,
+//   y1:number,
+// }
+
+// const rect:Rect = {
+//   x0:50,
+//   y0:50,
+//   x1:100,
+//   y1:100,
+// }
+  
+// const rectDiv = document.getElementById('rect')
+
+// const moveLeftTopButton = document.getElementById('moveLeftTop')
+// moveLeftTopButton?.addEventListener('click', () => { changeRectPosition(rect, -10, -10) })
+// const moveTopButton = document.getElementById('moveTop')
+// moveTopButton?.addEventListener('click', () => { changeRectPositionY(rect, -10) })
+// const moveRightTopButton = document.getElementById('moveRightTop')
+// moveRightTopButton?.addEventListener('click', () => { changeRectPosition(rect, 10, -10) })
+// const moveLeftButton = document.getElementById('moveLeft')
+// moveLeftButton?.addEventListener('click', () => { changeRectPositionX(rect, -10) })
+// const moveRightButton = document.getElementById('moveRight')
+// moveRightButton?.addEventListener('click', () => { changeRectPositionX(rect, 10) })
+// const moveLeftBottomButton = document.getElementById('moveLeftBottom')
+// moveLeftBottomButton?.addEventListener('click', () => { changeRectPosition(rect, -10, 10) })
+// const moveBottomButton = document.getElementById('moveBottom')
+// moveBottomButton?.addEventListener('click', () => { changeRectPositionY(rect, 10) })
+// const moveRightBottomButton = document.getElementById('moveRightBottom')
+// moveRightBottomButton?.addEventListener('click', () => { changeRectPosition(rect, 10, 10) })
+
+// const squeezeX = document.getElementById('squeezeX')
+// squeezeX?.addEventListener('click', () => { changeRectWidth(rect, -10) })
+// const expandX = document.getElementById('expandX')
+// expandX?.addEventListener('click', () => { changeRectWidth(rect, 10) })
+// const squeezeY = document.getElementById('squeezeY')
+// squeezeY?.addEventListener('click', () => { changeRectHeight(rect, -10) })
+// const expandY = document.getElementById('expandY')
+// expandY?.addEventListener('click', () => { changeRectHeight(rect, 10) })
 
 
-function changeRectWidth(rect: Rect, n:number) {
-    rect.x1 += n
-    renderRect(rect)
-}
-
-
-function changeRectHeight(rect: Rect, n: number) {
-    rect.y1 += n
-    renderRect(rect)
-}
-
-
-
-function changeRectWidthAndHeight(rect: Rect, x: number, y:number) {
-    changeRectWidth(rect, x)
-    changeRectHeight(rect, y)
-    renderRect(rect)
-}
+// console.log(rectDiv)
+// function renderRect(rect:Rect) {
+//   if (rectDiv) {
+//     rectDiv.style.top = rect.y0 + 'px'
+//     rectDiv.style.left = rect.x0 + 'px'
+//     rectDiv.style.width = getRectWidth(rect) + 'px'
+//     rectDiv.style.height = getRectHeight(rect) + 'px'
+//   }
+// }
+// renderRect(rect)
 
 
 
-function changeRectPositionX(rect: Rect, n: number) {
-    rect.x0 += n
-    rect.x1 += n
-    renderRect(rect)
-}
+// function showRectInfo(rect: Rect) {
+//   console.log(`top-left (${rect.x0}, ${rect.y0}) bootom-rigth (${rect.x1}, ${rect.y1})`)
+// }
+// showRectInfo(rect)
 
 
-function changeRectPositionY(rect: Rect, n: number) {
-    rect.y0 += n
-    rect.y1 += n
-    renderRect(rect)
-}
+// function getRectWidth(rect: Rect) {
+//   return rect.x1 - rect.x0
+// }
 
 
 
-function changeRectPosition(rect: Rect, x: number, y: number) {
-    changeRectPositionX(rect, x)
-    changeRectPositionY(rect, y)
-    renderRect(rect)
-}
+// function getRectHeight(rect: Rect) {
+//   return rect.y1 - rect.y0
+// }
+
+
+
+// function getRectArea(rect: Rect) {
+//   return getRectWidth(rect) * getRectHeight(rect)
+// }
+// console.log(`площадь прямоугольника ${getRectArea(rect)}px`)
+
+
+
+// function getRectPerimetr(rect: Rect) {
+//   return getRectWidth(rect) * 2 + getRectHeight(rect) * 2 
+// }
+// console.log(`периметр прямоугольника ${getRectPerimetr(rect)}px`)
+
+
+// function changeRectWidth(rect: Rect, n:number) {
+//   rect.x1 += n
+//   renderRect(rect)
+// }
+
+
+// function changeRectHeight(rect: Rect, n: number) {
+//   rect.y1 += n
+//   renderRect(rect)
+// }
+
+
+
+// function changeRectWidthAndHeight(rect: Rect, x: number, y:number) {
+//   changeRectWidth(rect, x)
+//   changeRectHeight(rect, y)
+//   renderRect(rect)
+// }
+
+
+
+// function changeRectPositionX(rect: Rect, n: number) {
+//   rect.x0 += n
+//   rect.x1 += n
+//   renderRect(rect)
+// }
+
+
+// function changeRectPositionY(rect: Rect, n: number) {
+//   rect.y0 += n
+//   rect.y1 += n
+//   renderRect(rect)
+// }
+
+
+
+// function changeRectPosition(rect: Rect, x: number, y: number) {
+//   changeRectPositionX(rect, x)
+//   changeRectPositionY(rect, y)
+//   renderRect(rect)
+// }
+
 
