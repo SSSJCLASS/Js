@@ -371,90 +371,90 @@ import './style.css'
 
 
 
-let xz: any = 5
-xz = "Вася"
+// let xz: any = 5
+// xz = "Вася"
 
-let uName = ''
-let toDos = [] as string[]
+// let uName = ''
+// let toDos = [] as string[]
 
-const appDiv = document.getElementById('app')
-// if (appDiv) appDiv.innerHTML += `<p>Добро пожаловать на сайт</p>`
-function render() {
-  let isLogin = Boolean(uName)
-  if (appDiv) appDiv.innerHTML = ''
-  const pElelement = document.createElement('p')
-  pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
-  if (appDiv) appDiv.appendChild(pElelement) 
+// const appDiv = document.getElementById('app')
+// // if (appDiv) appDiv.innerHTML += `<p>Добро пожаловать на сайт</p>`
+// function render() {
+//   let isLogin = Boolean(uName)
+//   if (appDiv) appDiv.innerHTML = ''
+//   const pElelement = document.createElement('p')
+//   pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
+//   if (appDiv) appDiv.appendChild(pElelement) 
   
-  const button = document.createElement('button')
-  button.textContent = isLogin ? 'LogOut' : 'Login'
-  button.addEventListener('click', ()=>{
-    uName = isLogin ? '' : 'Niko'
-    toDos = !isLogin ? ['проснуться', 'позавтракать', 'умыться', 'работать', 'лечь спать'] : []
-    render()
-  })
-  if (appDiv) appDiv.appendChild(button) 
-  if (isLogin) {
-    const olElement = document.createElement('ol')
-    // for (let i=0;i<toDos.length;i++) {
-    //   const listElement = document.createElement('li')
-    //   listElement.textContent = toDos[i]
-    //   olElement.appendChild(listElement)
-    // }
-    for (let el of toDos) {
-      const listElement = document.createElement('li')
-      listElement.textContent = el
-      olElement.appendChild(listElement)
-    }
-    if (appDiv) appDiv.appendChild(olElement)
-  }
-}
+//   const button = document.createElement('button')
+//   button.textContent = isLogin ? 'LogOut' : 'Login'
+//   button.addEventListener('click', ()=>{
+//     uName = isLogin ? '' : 'Niko'
+//     toDos = !isLogin ? ['проснуться', 'позавтракать', 'умыться', 'работать', 'лечь спать'] : []
+//     render()
+//   })
+//   if (appDiv) appDiv.appendChild(button) 
+//   if (isLogin) {
+//     const olElement = document.createElement('ol')
+//     // for (let i=0;i<toDos.length;i++) {
+//     //   const listElement = document.createElement('li')
+//     //   listElement.textContent = toDos[i]
+//     //   olElement.appendChild(listElement)
+//     // }
+//     for (let el of toDos) {
+//       const listElement = document.createElement('li')
+//       listElement.textContent = el
+//       olElement.appendChild(listElement)
+//     }
+//     if (appDiv) appDiv.appendChild(olElement)
+//   }
+// }
 
-render()
+// render()
 
-const userO = {               // объект
-  name: "John",             // под ключом "name" хранится значение "John"
-  age: 30,                  // под ключом "age" хранится значение 30
-  "likes birds": true,      // имя свойства из нескольких слов должно быть в кавычках
-  'backgound-color': 'red',
-  0: 10,
-} as Record<string,any>
+// const userO = {               // объект
+//   name: "John",             // под ключом "name" хранится значение "John"
+//   age: 30,                  // под ключом "age" хранится значение 30
+//   "likes birds": true,      // имя свойства из нескольких слов должно быть в кавычках
+//   'backgound-color': 'red',
+//   0: 10,
+// } as Record<string,any>
 
-console.log(userO)
-console.log({...userO})
-console.log(userO.name)
-console.log(userO[0])
-console.log(userO['backgound-color'])
+// console.log(userO)
+// console.log({...userO})
+// console.log(userO.name)
+// console.log(userO[0])
+// console.log(userO['backgound-color'])
 
 
-const key = 'backgound-color'
-console.log(userO[key])
+// const key = 'backgound-color'
+// console.log(userO[key])
 
-userO.isAdmin = true
-console.log({...userO})
+// userO.isAdmin = true
+// console.log({...userO})
 
-delete userO[0]
-delete userO.isLogin
-delete userO['backgound-color']
-console.log({...userO})
+// delete userO[0]
+// delete userO.isLogin
+// delete userO['backgound-color']
+// console.log({...userO})
 
-function makeUser(name:string='', age:number=0) {
-  return {
+// function makeUser(name:string='', age:number=0) {
+//   return {
     // вместо такой записи, где мы отдельно прописываем имя свойства, а значение берём из одноимённой переменной
     // name:name,
     // age:age,
     // мы можем просто указать имена переменных
     // В таком случае имя переменной станет именем свойства, а её значение,- значением свойства
-    name, // тоже самое, что и name:name
-    age,  // тоже самое, что и age:age
-    admin:false,
-    key: 20,
-    noValue: undefined,
-  } as any
-}
+//     name, // тоже самое, что и name:name
+//     age,  // тоже самое, что и age:age
+//     admin:false,
+//     key: 20,
+//     noValue: undefined,
+//   } as any
+// }
 
-const usr1 = makeUser('Niko', 35)
-console.log(usr1)
+// const usr1 = makeUser('Niko', 35)
+// console.log(usr1)
 
 // При обращении к свойству, которого нет, возвращается undefined.Это позволяет просто проверить существование свойства:
 // Для чего вообще нужен оператор in? Разве недостаточно сравнения с undefined ?
@@ -462,27 +462,27 @@ console.log(usr1)
 // В большинстве случаев прекрасно сработает сравнение с undefined.Но есть особый случай, когда оно не подходит и нужно использовать "in".
 
 
-console.log('"age" in usr1', "age" in usr1)    // true, usr1.age существует
-console.log('"blabla" in usr1', "blabla" in usr1) // false, usr1.blabla не существует
-console.log('usr1.blabla === undefined', usr1.blabla === undefined) // true, usr1.blabla не существует
+// console.log('"age" in usr1', "age" in usr1)    // true, usr1.age существует
+// console.log('"blabla" in usr1', "blabla" in usr1) // false, usr1.blabla не существует
+// console.log('usr1.blabla === undefined', usr1.blabla === undefined) // true, usr1.blabla не существует
 // Это когда свойство существует, но содержит значение undefined
-console.log('"noValue" in usr1', "noValue" in usr1) // true, usr1.noValue существует
-console.log('usr1.noValue === undefined', usr1.noValue === undefined) // true, usr1.noValue существует, но его значение = undefined
-console.log('usr1.noValue === undefined', usr1['noValue'] === undefined) // true, usr1.noValue существует, но его значение = undefined
+// console.log('"noValue" in usr1', "noValue" in usr1) // true, usr1.noValue существует
+// console.log('usr1.noValue === undefined', usr1.noValue === undefined) // true, usr1.noValue существует, но его значение = undefined
+// console.log('usr1.noValue === undefined', usr1['noValue'] === undefined) // true, usr1.noValue существует, но его значение = undefined
 
 // Подобные ситуации случаются очень редко, так как undefined обычно явно не присваивается.Для «неизвестных» или «пустых» свойств мы используем значение null
 
 // !Цикл "for..in"
 // На каждой итерации цикла в переменную key попадают имена свойств объекта (строкой)
-for (let key in usr1) {
-  console.log('key', key, 'value', usr1[key])
-}
+// for (let key in usr1) {
+//   console.log('key', key, 'value', usr1[key])
+// }
 
 // Получить все ключи объекта массивом
-const keys = Object.keys(usr1)
-console.log(keys)
-console.log(Object.values(usr1))
-console.log(Object.entries(usr1)[2])
+// const keys = Object.keys(usr1)
+// console.log(keys)
+// console.log(Object.values(usr1))
+// console.log(Object.entries(usr1)[2])
 
 
 // Итого
@@ -660,4 +660,385 @@ console.log(Object.entries(usr1)[2])
 
 
 
+// class Product  {
+//   constructor (params={}){
+//     Object.assign(this, {
+//       pName: null,
+//       amout: 1,
+//       bought: false
+//     },{...params});
+//   }
 
+// static sortDefault(a, b){
+//   return (a.bought - b.bought)*10 + a.pName.localeCompare(b.pName);
+//   };
+// }
+// Product.prototype.toString = function () {
+//   return `${this.pName} (x${this.amout}), ${this.bought ? 'Куплено' : 'Не куплено' }`;
+// }
+
+
+
+// Шаг первый
+const shoppingList: any = [
+    {
+        name: 'bread',
+        count: 2,
+        isBought: true,
+    },
+    {
+        name: 'butter',
+        count: 1,
+        isBought: true,
+    },
+    {
+        name: 'milk',
+        count: 3,
+        isBought: false,
+    },
+    {
+        name: 'egg',
+        count: 6,
+        isBought: false,
+    },
+    {
+        name: 'tomato',
+        count: 8,
+        isBought: false,
+    },
+    {
+        name: 'sauce',
+        count: 1,
+        isBought: true,
+    },
+]
+
+
+
+const sortedShoppingList: any = [...shoppingList];
+
+sortedShoppingList.sort( (a:any, b: any) => {
+
+    if (a.isBought === true && b.isBought === false) {
+        return 1;
+    }
+    if (a.isBought === false && b.isBought === true) {
+        return -1;
+    }
+    return 0;
+})
+
+sortedShoppingList.sort( (a: any, b:any) => a.isBought - b.isBought);
+
+console.log(sortedShoppingList);  
+
+
+
+let addPurchase = (name = '', count = 0, arr: any = []) => {
+    let res = [...arr];
+    if (res.find(item => item.name === name)) {
+        for (let i = 0; i < res.length; i++) 
+            if (name === res[i].name) {
+                res[i].count += count;
+            }
+    } else {
+        res.push({
+        name,
+        count,
+        isBought: false,
+        }) 
+    }
+
+    return res; 
+}
+
+const newList1 = [...shoppingList];
+console.log(newList1);                   
+
+console.log(addPurchase('egg', 4, newList1));       
+
+console.log(addPurchase('banana', 2, newList1));    
+
+
+const addBuyingProduct: any = (arr = [], name = '') => {
+    let res: any = [...arr];
+    for (let i = 0; i < res.length; i++) {
+        if (name === res[i].name) {
+            res[i].isBought = true;
+        }
+    }
+
+    return res;
+}
+
+
+const addPurchasedProduct = (arr: any = [], name = '') => {
+    let res = [...arr];
+
+    res.forEach(product => {
+        if (name === product.name) {
+            product.isBought = true;
+        }        
+    });
+    return res;
+}
+                    
+console.log(addPurchasedProduct(shoppingList, 'milk'));
+
+console.log(addBuyingProduct(shoppingList, 'milk'));    
+
+console.log(addBuyingProduct(shoppingList, 'egg'));   
+
+
+
+
+// Шаг второй
+const receipt: any = [
+    {
+        name: 'bread',
+        count: 2,
+        price: 8,
+    },
+    {
+        name: 'butter',
+        count: 1,
+        price: 30,
+    },
+    {
+        name: 'milk',
+        count: 3,
+        price: 23,
+    },
+    {
+        name: 'egg',
+        count: 6,
+        price: 2,
+    },
+    {
+        name: 'tomato',
+        count: 8,
+        price: 26,
+    },
+    {
+        name: 'sauce',
+        count: 1,
+        price: 18,
+    },
+];
+
+
+const showReceipt = (arr: any = []) => {
+    let res = [...arr];
+
+    res.forEach(product => {
+  let sum = product.count * product.price;
+    console.log(`${product.count} x ${product.price}\n ${product.name}.....Sum: ${sum}`);
+    
+    });
+
+  let total = res.map((product: any) => product.count * product.price )  
+                    .reduce((sum: any, current: any) => sum + current, 0);
+
+    console.log(`Total: ${total}`);
+
+    return res;
+}
+
+showReceipt(receipt);  
+const mostExpensivePurchase: any = (arr = []) => {
+    let res: any = [...arr];
+    let maxCost = 0;
+    for (const product of res) {
+      let cost = product.price * product.count
+        if ( cost > maxCost) {
+            maxCost = cost;
+        }
+    }
+    return maxCost;
+}
+
+console.log(mostExpensivePurchase(receipt));  
+const averageCost: any = (arr = []) => {
+    
+    let res: any = [...arr];
+    let sum = 0;
+
+    for (const product of res) {
+      sum += product.price * product.count;
+    }
+
+    return (sum / res.length).toFixed(2);
+}
+
+console.log(averageCost(receipt));   
+
+
+
+//Шаг третий
+const classRoom: any = [
+    { 
+        name: "105", 
+        places: "24", 
+        faculty: "Software" 
+    },
+    { 
+        name: "112", 
+        places: "12", 
+        faculty: "Cybernetics" 
+    },
+    { 
+        name: "113", 
+        places: "20", 
+        faculty: "Techical Cybernetics" 
+    },
+    { 
+        name: "118", 
+        places: "14", 
+        faculty: "Engineering" 
+    },
+    { 
+        name: "117", 
+        places: "25", 
+        faculty: "Economic cybernetics" 
+    },
+    { 
+        name: "115", 
+        places: "20", 
+        faculty: "Software" 
+    },
+    { 
+        name: "100", 
+        places: "15", 
+        faculty: "Languages" 
+    },
+    { 
+        name: "110", 
+        places: "10", 
+        faculty: "Techical Cybernetics" 
+    },
+    { 
+        name: "120", 
+        places: "28", 
+        faculty: "Software" },
+];
+
+const group = {
+    name: "SW-2019",
+    count: "25",
+    faculty: "Software",
+    };
+
+
+const showClassRoom: any = (arr: any = []) => {
+    let classRooms = [];
+    for (let i of arr) {
+        classRooms.push(i.name);
+    }
+    return `All rooms: ${classRooms.join('; ')}.`;
+}
+
+console.log(showClassRoom(classRoom)); 
+
+const showFacultyRooms: any = (arr: any = [], faculty = '') => {
+    let facultyRooms = [];
+
+    for (const i of arr) {
+        if (i.faculty.toLowerCase() === faculty.toLowerCase()) {
+            facultyRooms.push(i.name);
+        }
+    }
+    return `All rooms for "${faculty}" faculty: ${facultyRooms.join('; ')}.`;
+}
+
+console.log(showFacultyRooms(classRoom, 'Software'));  
+
+const showGroupRooms = (arr: any = [], group: any = {}) => {
+    let groupRooms = [];
+
+    for (const i of arr) {
+        if (i.places >= group.count) {
+            groupRooms.push(i.name);
+        }
+    }
+    return `All rooms for "${group.name}": ${groupRooms.join('; ')}`;  
+}
+
+console.log(showGroupRooms(classRoom, group));   
+const arrSortPlace= (arr = []) => {
+    let arr1 = [...arr];
+    arr1.sort((a: any, b:any) => a.places - b.places);
+    return arr1;
+};
+
+
+const arrSortName = (arr = []) => {
+    let arr2 = [...arr];
+    arr2.sort( (a: any, b:any) => a.name - b.name );
+    return arr2;
+};
+                    
+console.log(arrSortName(classRoom));    
+
+console.log(arrSortPlace(classRoom));   
+
+
+//Шаг четвертый
+const styles: any = [
+    { 
+        name: "text-align", 
+        value: "center" 
+    },
+    {
+        name: "text-transform", 
+        value: "capitalize" 
+    },
+    { 
+        name: "text-overflow", 
+        value: "ellipsis" 
+    },
+    { 
+        name: "font-size", 
+        value: "1rem" 
+    },
+    { 
+        name: "color", 
+        value: "#555555" 
+    },
+    { 
+        name: "letter-spacing", 
+        value: "2px" 
+    },
+    { 
+        name: "font-weight", 
+        value: "300" 
+    },
+    { 
+        name: "border", 
+        value: "1px solid red" 
+    },
+    { 
+        name: "font-style", 
+        value: "oblique" 
+    },
+    { 
+        name: "font-stretch", 
+        value: "extra-expanded" 
+    }
+];
+
+const text: any = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+    Reprehenderit, rem sit eaque temporibus sint explicabo. 
+    Quod placeat quos inventore quas magni architecto, cupiditate assumenda enim, 
+    eum exercitationem ex sunt iste?`;
+
+    let styleText = (arr:any = [], text = '') => {
+        document.write('<p style = "');
+
+        for (let i of arr) {
+            document.write(`${i.name}: ${i.value}; `);
+        }
+
+        document.write('">' + text + "</p>");
+    };
+
+styleText(styles, text);
