@@ -679,366 +679,80 @@ import './style.css'
 
 
 
-// Шаг первый
-const shoppingList: any = [
-    {
-        name: 'bread',
-        count: 2,
-        isBought: true,
-    },
-    {
-        name: 'butter',
-        count: 1,
-        isBought: true,
-    },
-    {
-        name: 'milk',
-        count: 3,
-        isBought: false,
-    },
-    {
-        name: 'egg',
-        count: 6,
-        isBought: false,
-    },
-    {
-        name: 'tomato',
-        count: 8,
-        isBought: false,
-    },
-    {
-        name: 'sauce',
-        count: 1,
-        isBought: true,
-    },
+
+// let proffession = ['Джаз','Блюз'];
+
+// let proffessionCard = proffession
+// proffessionCard.push('Рок-н-ролл')
+
+// proffession[Math.floor((proffession.length - 1) / 2)] = "Классика"
+// alert(proffession.shift())
+// proffession.unshift('Репп','Регги')
+
+// alert(proffession.length)
+// console.log(proffession.length)
+
+
+
+// Самый простой способ очистить массив – это arr.length = 0
+
+// Массивы могут содержать элементы, которые тоже являются массивами.Это можно использовать для создания многомерных массивов, например, для хранения матриц:
+
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
 ]
 
+console.log(matrix[1][1]) // 5, центральный элемент
+console.log(matrix[2][2]) // 9
+
+// !Давайте ещё раз напомним правила:
+
+// Два объекта равны друг другу == только в том случае, если они ссылаются на один и тот же объект.
+// Если один из аргументов == является объектом, а другой – примитивом, то объект преобразуется в примитив, как описано в главе Преобразование объектов в примитивы.
+// …За исключением null и undefined, которые равны == друг другу и ничему больше.
+
+// @ts-ignore
+console.log('[1,2,3]==[1,2,3]',[1,2,3]==[1,2,3]) // false Массивы- это объекты, а объекты равны друг другу только по ссылке
+console.log('[1, 2, 3].toString() == [1, 2, 3].toString()',[1, 2, 3].toString() == [1, 2, 3].toString()) // true Подходит только для массивов с примитивами
+console.log('[{ a: 10 }, 2, 3].toString() == [{ a: 20 }, 2, 3].toString()', [{ a: 10 }, 2, 3].toString() == [{ a: 20 }, 2, 3].toString()) // true [object Object]. Не подходит для массивов с объектами
+console.log('[{ a: 10 }, 2, 3].toString()', [{ a: 10 }, 2, 3].toString())
 
 
-const sortedShoppingList: any = [...shoppingList];
+// Так как же сравнить массивы ?
 
-sortedShoppingList.sort( (a:any, b: any) => {
+// Это просто: не используйте оператор ==.Вместо этого сравните их по элементам в цикле или используя методы итерации, описанные в следующей главе.
 
-    if (a.isBought === true && b.isBought === false) {
-        return 1;
+function arrayCompare(arr1: any[], arr2: any[], strict:boolean) {
+  if (arr1.length != arr2.length) return false
+  for (let i=0;i<arr1.length;i++) {
+    if ((typeof arr1[i] == 'object' && typeof arr2[i] != 'object') || (typeof arr1[i] != 'object' && typeof arr2[i] == 'object')) return false
+    if (typeof arr1[i] == 'object') {
+      const entr1 = Object.entries(arr1[i])
+      const entr2 = Object.entries(arr2[i])
+      if (entr1.length != entr2.length) return false
+      for (let j = 0; j < entr1.length; j++) {
+        if (!arrayCompare(entr1[j], entr2[j], strict)) return false
+      }
     }
-    if (a.isBought === false && b.isBought === true) {
-        return -1;
+    else {
+      if (strict) {
+        if (arr1[i] !== arr2[i]) return false
+      } else {
+        if (arr1[i] != arr2[i]) return false
+      }
     }
-    return 0;
-})
-
-sortedShoppingList.sort( (a: any, b:any) => a.isBought - b.isBought);
-
-console.log(sortedShoppingList);  
-
-
-
-let addPurchase = (name = '', count = 0, arr: any = []) => {
-    let res = [...arr];
-    if (res.find(item => item.name === name)) {
-        for (let i = 0; i < res.length; i++) 
-            if (name === res[i].name) {
-                res[i].count += count;
-            }
-    } else {
-        res.push({
-        name,
-        count,
-        isBought: false,
-        }) 
-    }
-
-    return res; 
+  }
+  return true
 }
 
-const newList1 = [...shoppingList];
-console.log(newList1);                   
-
-console.log(addPurchase('egg', 4, newList1));       
-
-console.log(addPurchase('banana', 2, newList1));    
-
-
-const addBuyingProduct: any = (arr = [], name = '') => {
-    let res: any = [...arr];
-    for (let i = 0; i < res.length; i++) {
-        if (name === res[i].name) {
-            res[i].isBought = true;
-        }
-    }
-
-    return res;
-}
-
-
-const addPurchasedProduct = (arr: any = [], name = '') => {
-    let res = [...arr];
-
-    res.forEach(product => {
-        if (name === product.name) {
-            product.isBought = true;
-        }        
-    });
-    return res;
-}
-                    
-console.log(addPurchasedProduct(shoppingList, 'milk'));
-
-console.log(addBuyingProduct(shoppingList, 'milk'));    
-
-console.log(addBuyingProduct(shoppingList, 'egg'));   
+console.log(arrayCompare([1, 2, 3, { a: 20, b: { c: 5 } }], [1, 2, 3, { a: 20, b: { c: 5 } }], true))
+  
 
 
 
 
-// Шаг второй
-const receipt: any = [
-    {
-        name: 'bread',
-        count: 2,
-        price: 8,
-    },
-    {
-        name: 'butter',
-        count: 1,
-        price: 30,
-    },
-    {
-        name: 'milk',
-        count: 3,
-        price: 23,
-    },
-    {
-        name: 'egg',
-        count: 6,
-        price: 2,
-    },
-    {
-        name: 'tomato',
-        count: 8,
-        price: 26,
-    },
-    {
-        name: 'sauce',
-        count: 1,
-        price: 18,
-    },
-];
-
-
-const showReceipt = (arr: any = []) => {
-    let res = [...arr];
-
-    res.forEach(product => {
-  let sum = product.count * product.price;
-    console.log(`${product.count} x ${product.price}\n ${product.name}.....Sum: ${sum}`);
-    
-    });
-
-  let total = res.map((product: any) => product.count * product.price )  
-                    .reduce((sum: any, current: any) => sum + current, 0);
-
-    console.log(`Total: ${total}`);
-
-    return res;
-}
-
-showReceipt(receipt);  
-const mostExpensivePurchase: any = (arr = []) => {
-    let res: any = [...arr];
-    let maxCost = 0;
-    for (const product of res) {
-      let cost = product.price * product.count
-        if ( cost > maxCost) {
-            maxCost = cost;
-        }
-    }
-    return maxCost;
-}
-
-console.log(mostExpensivePurchase(receipt));  
-const averageCost: any = (arr = []) => {
-    
-    let res: any = [...arr];
-    let sum = 0;
-
-    for (const product of res) {
-      sum += product.price * product.count;
-    }
-
-    return (sum / res.length).toFixed(2);
-}
-
-console.log(averageCost(receipt));   
 
 
 
-//Шаг третий
-const classRoom: any = [
-    { 
-        name: "105", 
-        places: "24", 
-        faculty: "Software" 
-    },
-    { 
-        name: "112", 
-        places: "12", 
-        faculty: "Cybernetics" 
-    },
-    { 
-        name: "113", 
-        places: "20", 
-        faculty: "Techical Cybernetics" 
-    },
-    { 
-        name: "118", 
-        places: "14", 
-        faculty: "Engineering" 
-    },
-    { 
-        name: "117", 
-        places: "25", 
-        faculty: "Economic cybernetics" 
-    },
-    { 
-        name: "115", 
-        places: "20", 
-        faculty: "Software" 
-    },
-    { 
-        name: "100", 
-        places: "15", 
-        faculty: "Languages" 
-    },
-    { 
-        name: "110", 
-        places: "10", 
-        faculty: "Techical Cybernetics" 
-    },
-    { 
-        name: "120", 
-        places: "28", 
-        faculty: "Software" },
-];
-
-const group = {
-    name: "SW-2019",
-    count: "25",
-    faculty: "Software",
-    };
-
-
-const showClassRoom: any = (arr: any = []) => {
-    let classRooms = [];
-    for (let i of arr) {
-        classRooms.push(i.name);
-    }
-    return `All rooms: ${classRooms.join('; ')}.`;
-}
-
-console.log(showClassRoom(classRoom)); 
-
-const showFacultyRooms: any = (arr: any = [], faculty = '') => {
-    let facultyRooms = [];
-
-    for (const i of arr) {
-        if (i.faculty.toLowerCase() === faculty.toLowerCase()) {
-            facultyRooms.push(i.name);
-        }
-    }
-    return `All rooms for "${faculty}" faculty: ${facultyRooms.join('; ')}.`;
-}
-
-console.log(showFacultyRooms(classRoom, 'Software'));  
-
-const showGroupRooms = (arr: any = [], group: any = {}) => {
-    let groupRooms = [];
-
-    for (const i of arr) {
-        if (i.places >= group.count) {
-            groupRooms.push(i.name);
-        }
-    }
-    return `All rooms for "${group.name}": ${groupRooms.join('; ')}`;  
-}
-
-console.log(showGroupRooms(classRoom, group));   
-const arrSortPlace= (arr = []) => {
-    let arr1 = [...arr];
-    arr1.sort((a: any, b:any) => a.places - b.places);
-    return arr1;
-};
-
-
-const arrSortName = (arr = []) => {
-    let arr2 = [...arr];
-    arr2.sort( (a: any, b:any) => a.name - b.name );
-    return arr2;
-};
-                    
-console.log(arrSortName(classRoom));    
-
-console.log(arrSortPlace(classRoom));   
-
-
-//Шаг четвертый
-const styles: any = [
-    { 
-        name: "text-align", 
-        value: "center" 
-    },
-    {
-        name: "text-transform", 
-        value: "capitalize" 
-    },
-    { 
-        name: "text-overflow", 
-        value: "ellipsis" 
-    },
-    { 
-        name: "font-size", 
-        value: "1rem" 
-    },
-    { 
-        name: "color", 
-        value: "#555555" 
-    },
-    { 
-        name: "letter-spacing", 
-        value: "2px" 
-    },
-    { 
-        name: "font-weight", 
-        value: "300" 
-    },
-    { 
-        name: "border", 
-        value: "1px solid red" 
-    },
-    { 
-        name: "font-style", 
-        value: "oblique" 
-    },
-    { 
-        name: "font-stretch", 
-        value: "extra-expanded" 
-    }
-];
-
-const text: any = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-    Reprehenderit, rem sit eaque temporibus sint explicabo. 
-    Quod placeat quos inventore quas magni architecto, cupiditate assumenda enim, 
-    eum exercitationem ex sunt iste?`;
-
-    let styleText = (arr:any = [], text = '') => {
-        document.write('<p style = "');
-
-        for (let i of arr) {
-            document.write(`${i.name}: ${i.value}; `);
-        }
-
-        document.write('">' + text + "</p>");
-    };
-
-styleText(styles, text);
