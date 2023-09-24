@@ -695,14 +695,14 @@ import './style.css'
 
 // Массивы могут содержать элементы, которые тоже являются массивами.Это можно использовать для создания многомерных массивов, например, для хранения матриц:
 
-let matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+// let matrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]
 
-console.log(matrix[1][1]) // 5, центральный элемент
-console.log(matrix[2][2]) // 9
+// console.log(matrix[1][1]) // 5, центральный элемент
+// console.log(matrix[2][2]) // 9
 
 // !Давайте ещё раз напомним правила:
 
@@ -711,10 +711,10 @@ console.log(matrix[2][2]) // 9
 // …За исключением null и undefined, которые равны == друг другу и ничему больше.
 
 // @ts-ignore
-console.log('[1,2,3]==[1,2,3]',[1,2,3]==[1,2,3]) // false Массивы- это объекты, а объекты равны друг другу только по ссылке
-console.log('[1, 2, 3].toString() == [1, 2, 3].toString()',[1, 2, 3].toString() == [1, 2, 3].toString()) // true Подходит только для массивов с примитивами
-console.log('[{ a: 10 }, 2, 3].toString() == [{ a: 20 }, 2, 3].toString()', [{ a: 10 }, 2, 3].toString() == [{ a: 20 }, 2, 3].toString()) // true [object Object]. Не подходит для массивов с объектами
-console.log('[{ a: 10 }, 2, 3].toString()', [{ a: 10 }, 2, 3].toString())
+// console.log('[1,2,3]==[1,2,3]',[1,2,3]==[1,2,3]) // false Массивы- это объекты, а объекты равны друг другу только по ссылке
+// console.log('[1, 2, 3].toString() == [1, 2, 3].toString()',[1, 2, 3].toString() == [1, 2, 3].toString()) // true Подходит только для массивов с примитивами
+// console.log('[{ a: 10 }, 2, 3].toString() == [{ a: 20 }, 2, 3].toString()', [{ a: 10 }, 2, 3].toString() == [{ a: 20 }, 2, 3].toString()) // true [object Object]. Не подходит для массивов с объектами
+// console.log('[{ a: 10 }, 2, 3].toString()', [{ a: 10 }, 2, 3].toString())
 
 
 // Так как же сравнить массивы ?
@@ -776,3 +776,115 @@ console.log('[{ a: 10 }, 2, 3].toString()', [{ a: 10 }, 2, 3].toString())
 
 
 
+// function numberToWords(number) {
+//     const units = ["", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
+//     const teens = ["", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"];
+//     const tens = ["", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];
+    
+//     if (number >= 11 && number <= 19) {
+//         return teens[number - 11];
+//     } else {
+//         const digit1 = Math.floor(number / 10);
+//         const digit2 = number % 10;
+//         return `${tens[digit1]} ${units[digit2]}`.trim();
+//     }
+//     }
+    
+//     const number = 57; 
+//     const words = numberToWords(number);
+//     console.log(words);
+
+
+const readline= require('readline');
+const { stdin, stdout } = require('process');
+
+const rl = readline.createInterface({
+    input: stdin,
+    output: stdout
+});
+
+const dino = '🦕';
+const ground = '_';
+const obstacle = '🌵';
+
+let dinoPosition = 0;
+let isJumping = false;
+let gameSpeed = 200;
+let score = 0;
+
+function drawGame() {
+    const gameWidth = 30;
+
+    let gameLine = '';
+    for (let i = 0; i < gameWidth; i++) {
+    if (i === dinoPosition) {
+        gameLine += dino;
+    } else if (i < dinoPosition || i > dinoPosition + 1) {
+        gameLine += ground;
+    } else {
+        gameLine += ' ';
+    }
+    }
+
+    console.clear();
+    console.log(`Счет: ${score}`);
+    console.log(gameLine);
+    console.log(obstacleLine);
+
+    if (isJumping) {
+    jump();
+    } else {
+    rl.question('Нажмите пробел, чтобы прыгнуть...', (answer:any) => {
+        if (answer === ' ') {
+        jump();
+        }
+    });
+    }
+}
+
+function jump() {
+    if (!isJumping) {
+    isJumping = true;
+    setTimeout(() => {
+        isJumping = false;
+    }, 500);
+    }
+}
+
+function generateObstacle() {
+    const gameWidth = 30;
+    const obstacleWidth = 4;
+    const gapWidth = 6;
+    const obstacleLine = Array(gameWidth).fill(ground);
+  const obstaclePosition = Math.floor(Math.random() * (gameWidth - obstacleWidth - gapWidth));
+
+    for (let i = obstaclePosition; i < obstaclePosition + obstacleWidth; i++) {
+    obstacleLine[i] = obstacle;
+    }
+
+    return obstacleLine.join('');
+}
+
+function updateGame() {
+    score++;
+
+    if (score % 10 === 0) {
+    if (gameSpeed > 50) {
+        gameSpeed -= 10;
+    }
+    }
+
+    obstacleLine = generateObstacle();
+
+    if (obstacleLine[dinoPosition] === obstacle || obstacleLine[dinoPosition + 1] === obstacle) {
+    console.clear();
+    console.log(`Игра окончена! Ваш счет: ${score}`);
+    process.exit(0);
+    }
+
+    drawGame();
+    setTimeout(updateGame, gameSpeed);
+}
+
+let obstacleLine = generateObstacle();
+updateGame();
