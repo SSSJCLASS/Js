@@ -776,115 +776,113 @@ import './style.css'
 
 
 
-// function numberToWords(number) {
-//     const units = ["", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
-//     const teens = ["", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"];
-//     const tens = ["", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];
+function numberToWords(number) {
+    const units = ["", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"];
+    const teens = ["", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"];
+    const tens = ["", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"];
     
-//     if (number >= 11 && number <= 19) {
-//         return teens[number - 11];
+    if (number >= 11 && number <= 19) {
+        return teens[number - 11];
+    } else {
+        const digit1 = Math.floor(number / 10);
+        const digit2 = number % 10;
+        return `${tens[digit1]} ${units[digit2]}`.trim();
+    }
+    }
+    
+    const number = 57; 
+    const words = numberToWords(number);
+    console.log(words);
+
+// const readline = require('readline');
+// const { stdin, stdout } = require('process');
+// const rl = readline.createInterface({
+//     input: stdin,
+//     output: stdout
+// });
+
+// const dino = '🦕';
+// const ground = '_';
+// const obstacle = '🌵';
+
+// let dinoPosition = 0;
+// let isJumping = false;
+// let gameSpeed = 200;
+// let score = 0;
+
+// function drawGame() {
+//     const gameWidth = 30;
+
+//     let gameLine = '';
+//     for (let i = 0; i < gameWidth; i++) {
+//     if (i === dinoPosition) {
+//         gameLine += dino;
+//     } else if (i < dinoPosition || i > dinoPosition + 1) {
+//         gameLine += ground;
 //     } else {
-//         const digit1 = Math.floor(number / 10);
-//         const digit2 = number % 10;
-//         return `${tens[digit1]} ${units[digit2]}`.trim();
+//         gameLine += ' ';
 //     }
 //     }
-    
-//     const number = 57; 
-//     const words = numberToWords(number);
-//     console.log(words);
 
+//     console.clear();
+//     console.log(`Счет: ${score}`);
+//     console.log(gameLine);
+//     console.log(obstacleLine);
 
-const readline= require('readline');
-const { stdin, stdout } = require('process');
+//     if (isJumping) {
+//     jump();
+//     } else {
+//     rl.question('Нажмите пробел, чтобы прыгнуть...', (answer:any) => {
+//         if (answer === ' ') {
+//         jump();
+//         }
+//     });
+//     }
+// }
 
-const rl = readline.createInterface({
-    input: stdin,
-    output: stdout
-});
+// function jump() {
+//     if (!isJumping) {
+//     isJumping = true;
+//     setTimeout(() => {
+//         isJumping = false;
+//     }, 500);
+//     }
+// }
 
-const dino = '🦕';
-const ground = '_';
-const obstacle = '🌵';
+// function generateObstacle() {
+//     const gameWidth = 30;
+//     const obstacleWidth = 4;
+//     const gapWidth = 6;
+//     const obstacleLine = Array(gameWidth).fill(ground);
+//   const obstaclePosition = Math.floor(Math.random() * (gameWidth - obstacleWidth - gapWidth));
 
-let dinoPosition = 0;
-let isJumping = false;
-let gameSpeed = 200;
-let score = 0;
+//     for (let i = obstaclePosition; i < obstaclePosition + obstacleWidth; i++) {
+//     obstacleLine[i] = obstacle;
+//     }
 
-function drawGame() {
-    const gameWidth = 30;
+//     return obstacleLine.join('');
+// }
 
-    let gameLine = '';
-    for (let i = 0; i < gameWidth; i++) {
-    if (i === dinoPosition) {
-        gameLine += dino;
-    } else if (i < dinoPosition || i > dinoPosition + 1) {
-        gameLine += ground;
-    } else {
-        gameLine += ' ';
-    }
-    }
+// function updateGame() {
+//     score++;
 
-    console.clear();
-    console.log(`Счет: ${score}`);
-    console.log(gameLine);
-    console.log(obstacleLine);
+//     if (score % 10 === 0) {
+//     if (gameSpeed > 50) {
+//         gameSpeed -= 10;
+//     }
+//     }
 
-    if (isJumping) {
-    jump();
-    } else {
-    rl.question('Нажмите пробел, чтобы прыгнуть...', (answer:any) => {
-        if (answer === ' ') {
-        jump();
-        }
-    });
-    }
-}
+//     obstacleLine = generateObstacle();
 
-function jump() {
-    if (!isJumping) {
-    isJumping = true;
-    setTimeout(() => {
-        isJumping = false;
-    }, 500);
-    }
-}
+//     if (obstacleLine[dinoPosition] === obstacle || obstacleLine[dinoPosition + 1] === obstacle) {
+//     console.clear();
+//     console.log(`Игра окончена! Ваш счет: ${score}`);
+//     process.exit(0);
+//     }
 
-function generateObstacle() {
-    const gameWidth = 30;
-    const obstacleWidth = 4;
-    const gapWidth = 6;
-    const obstacleLine = Array(gameWidth).fill(ground);
-  const obstaclePosition = Math.floor(Math.random() * (gameWidth - obstacleWidth - gapWidth));
+//     drawGame();
+//     setTimeout(updateGame, gameSpeed);
+// }
 
-    for (let i = obstaclePosition; i < obstaclePosition + obstacleWidth; i++) {
-    obstacleLine[i] = obstacle;
-    }
-
-    return obstacleLine.join('');
-}
-
-function updateGame() {
-    score++;
-
-    if (score % 10 === 0) {
-    if (gameSpeed > 50) {
-        gameSpeed -= 10;
-    }
-    }
-
-    obstacleLine = generateObstacle();
-
-    if (obstacleLine[dinoPosition] === obstacle || obstacleLine[dinoPosition + 1] === obstacle) {
-    console.clear();
-    console.log(`Игра окончена! Ваш счет: ${score}`);
-    process.exit(0);
-    }
-
-    drawGame();
-    setTimeout(updateGame, gameSpeed);
-}
-
-let obstacleLine = generateObstacle();
-updateGame();
+// let obstacleLine = generateObstacle();
+// updateGame();
