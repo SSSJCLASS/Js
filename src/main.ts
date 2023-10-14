@@ -797,12 +797,6 @@ import './style.css'
 
 
 
-
-
-
-
-
-
 // function splitString(inputString, delimiter) {
 //     const substrings = inputString.split(delimiter);
 //     return substrings;
@@ -816,68 +810,69 @@ import './style.css'
 
 
 
-class HtmlElement {
-    tag:string
-    paired:boolean
-    text:string
-    attrs:string[] = []
-    styles:string[] = []
-    htmlElements: HtmlElement[] = []
-    constructor(tag:string, paired:boolean, text:string) {
-      this.tag = tag
-      this.paired = paired
-      this.text = text
-    }
-    setAttr(name:string, value:string) {
-      this.attrs.push(`${name}="${value}"`)
-    }
-    setStyle(name:string, value:string) {
-      this.styles.push(`${name}:${value}`)
-    }
-    append(element:HtmlElement) {
-      this.htmlElements.push(element)
-    }
-    prepend(element:HtmlElement) {
-      this.htmlElements.unshift(element)
-    }
-    getHtml():string {
-      if (this.styles.length) {
-        this.setAttr('style', this.styles.join(';'))
-      }
-      if (this.paired) {
-        return `<${this.tag} ${this.attrs.join(' ')}>${this.text}
-  ${this.htmlElements.map(el => el.getHtml()).join('')} 
-  </${this.tag}>`
-      } else {
-        return `<${this.tag} ${this.attrs.join(' ')}>`
-      }
-    }
-  }
+// class HtmlElement {
+//     tag:string
+//     paired:boolean
+//     text:string
+//     attrs:string[] = []
+//     styles:string[] = []
+//     htmlElements: HtmlElement[] = []
+//     constructor(tag:string, paired:boolean, text:string) {
+//       this.tag = tag
+//       this.paired = paired
+//       this.text = text
+//     }
+//     setAttr(name:string, value:string) {
+//       this.attrs.push(`${name}="${value}"`)
+//     }
+//     setStyle(name:string, value:string) {
+//       this.styles.push(`${name}:${value}`)
+//     }
+//     append(element:HtmlElement) {
+//       this.htmlElements.push(element)
+//     }
+//     prepend(element:HtmlElement) {
+//       this.htmlElements.unshift(element)
+//     }
+//     getHtml():string {
+//       if (this.styles.length) {
+//         this.setAttr('style', this.styles.join(';'))
+//       }
+//       if (this.paired) {
+//         return `<${this.tag} ${this.attrs.join(' ')}>${this.text}
+//   ${this.htmlElements.map(el => el.getHtml()).join('')} 
+//   </${this.tag}>`
+//       } else {
+//         return `<${this.tag} ${this.attrs.join(' ')}>`
+//       }
+//     }
+//   }
   
-  const wrapper = new HtmlElement('div', true, '')
-  wrapper.setAttr('id', 'wrapper')
-  wrapper.setStyle('display', 'flex')
-  const innerDiv = new HtmlElement('div', true, '')
-  innerDiv.setStyle('width', '300px')
-  innerDiv.setStyle('margin', '10px')
-  const h3 = new HtmlElement('h3', true, 'What is Lorem Ipsum?')
-  const img = new HtmlElement('img', false, '')
-  img.setAttr('src', 'https://img.goodfon.com/original/1280x1024/7/9a/cvety-cvetok-buket-priroda.jpg')
-  img.setAttr('alt', 'Lorem Ipsum')
-  img.setStyle('width', '100%')
-  const p = new HtmlElement('p', true, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias harum fuga magni quasi ex pariatur reprehenderit laudantium esse. Veritatis maiores qui fugiat nostrum, quo nihil sit recusandae aspernatur incidunt dolore.')
-  p.setStyle('text-align', 'justify')
-  const href = new HtmlElement('a', true, 'More...')
-  href.setAttr('href', 'https://www.lipsum.com/')
-  href.setAttr('target', '_blank')
+//   const wrapper = new HtmlElement('div', true, '')
+//   wrapper.setAttr('id', 'wrapper')
+//   wrapper.setStyle('display', 'flex')
+//   const innerDiv = new HtmlElement('div', true, '')
+//   innerDiv.setStyle('width', '300px')
+//   innerDiv.setStyle('margin', '10px')
+//   const h3 = new HtmlElement('h3', true, 'What is Lorem Ipsum?')
+//   const img = new HtmlElement('img', false, '')
+//   img.setAttr('src', 'https://img.goodfon.com/original/1280x1024/7/9a/cvety-cvetok-buket-priroda.jpg')
+//   img.setAttr('alt', 'Lorem Ipsum')
+//   img.setStyle('width', '100%')
+//   const p = new HtmlElement('p', true, 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias harum fuga magni quasi ex pariatur reprehenderit laudantium esse. Veritatis maiores qui fugiat nostrum, quo nihil sit recusandae aspernatur incidunt dolore.')
+//   p.setStyle('text-align', 'justify')
+//   const href = new HtmlElement('a', true, 'More...')
+//   href.setAttr('href', 'https://www.lipsum.com/')
+//   href.setAttr('target', '_blank')
   
-  p.append(href)
-  innerDiv.append(h3)
-  innerDiv.append(img)
-  innerDiv.append(p)
-  wrapper.append(innerDiv)
-  wrapper.append(innerDiv)
-  document.body.insertAdjacentHTML('beforeend',wrapper.getHtml())
+//   p.append(href)
+//   innerDiv.append(h3)
+//   innerDiv.append(img)
+//   innerDiv.append(p)
+//   wrapper.append(innerDiv)
+//   wrapper.append(innerDiv)
+//   wrapper.append(innerDiv)
+//   document.body.insertAdjacentHTML('beforeend',wrapper.getHtml())
 
 
 
