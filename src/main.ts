@@ -798,10 +798,13 @@ import './style.css'
 
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> cc519e1fab043a337b39b7e9e89e99ef5d275428
 // function splitString(inputString, delimiter) {
 //     const substrings = inputString.split(delimiter);
 //     return substrings;
@@ -815,6 +818,7 @@ import './style.css'
 
 
 
+<<<<<<< HEAD
 class HtmlElement {
     tag:string
     paired:boolean
@@ -877,3 +881,88 @@ class HtmlElement {
   wrapper.append(innerDiv)
   wrapper.append(innerDiv)
   document.body.insertAdjacentHTML('beforeend',wrapper.getHtml())
+
+
+
+    // function customSplit(inputString: any, delimiter: any) {
+    //     const substrings = [];
+    //     let currentSubstring = '';
+        
+    //     for (let i = 0; i < inputString.length; i++) {
+    //         if (inputString[i] !== delimiter) {
+    //         currentSubstring += inputString[i];
+    //         } else {
+    //         substrings.push(currentSubstring);
+    //         currentSubstring = '';
+    //         }
+    //     }
+        
+    //     substrings.push(currentSubstring);
+        
+    //     return substrings;
+    //     }
+        
+    //     const inputString ="10/08/2020";
+    //     const delimiter = "/";
+    //     const result = customSplit(inputString, delimiter);
+    //     console.log(result);
+
+
+
+
+        // function print(template, ...values) {
+        //     const parts = template.split(/(%\d)/);
+        // const result = parts.map(part => {
+        //         if (part.startsWith('%')) {
+        //         const index = parseInt(part.substring(1));
+        //         if (index >= 1 && index <= values.length) {
+        //             return values[index - 1];
+        //         } else {
+        //             return part; 
+        //         }
+        //         } else {
+        //         return part;
+        //         }
+        //     }).join('');
+            
+        //     console.log(result);
+        //     }
+        //     print("Today is %1 %2.%3.%4", "Monday", 10, 8, 2020);
+
+
+
+
+        // function parseURL(url) {
+            
+        //     const urlObj = new URL(url);
+        
+            
+        //     const protocol = urlObj.protocol;
+        //     const domain = urlObj.hostname;
+        //     const path = urlObj.pathname;
+        
+            
+        //     return `протокол: ${protocol}, домен: ${domain}, путь: ${path}`;
+        // }
+        
+        // const url = "https://itstep.org/ua/about";
+        // const info = parseURL(url);
+        //     console.log(info); 
+
+
+
+        // function concatenateStrings(...strings) {
+            
+        //     const result = strings.join('');
+        //     return result;
+        // }
+        
+        
+        // const string1 = "Привет, ";
+        // const string2 = "мир!";
+        // const concatenatedString = concatenateStrings(string1, string2);
+        // console.log(concatenatedString);
+
+
+
+
