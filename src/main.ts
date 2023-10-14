@@ -798,13 +798,11 @@ import './style.css'
 
 
 
-<<<<<<< HEAD
 
 
 
 
-=======
->>>>>>> cc519e1fab043a337b39b7e9e89e99ef5d275428
+
 // function splitString(inputString, delimiter) {
 //     const substrings = inputString.split(delimiter);
 //     return substrings;
@@ -818,7 +816,6 @@ import './style.css'
 
 
 
-<<<<<<< HEAD
 class HtmlElement {
     tag:string
     paired:boolean
