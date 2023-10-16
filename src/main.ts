@@ -955,3 +955,33 @@ import './style.css'
 
 
 
+
+
+        class CssClass {
+            constructor(class_name:any ) {
+              this.class_name = class_name;
+              this.style =[];         
+                }
+
+                setStyle(style:any) {
+                    this.styles.push(style);
+                }
+        }
+
+        removeStyle(style){
+            const index = this.styles.index0f(style);
+            if (index!== -1){
+            this.styles.(index,1);
+            }
+        }
+
+        
+        
+         getClass(){
+            let css_code =  `.${this.class_name} {\n`;
+
+            for (const style of )
+         }
+        
+
+
