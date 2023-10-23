@@ -1,4 +1,5 @@
 import './style.css'
+import { text } from 'stream/consumers'
 // alert('я JS')
 // var name = prompt ("What is your name?")
 // alert('Hello ' + name)
@@ -958,3 +959,38 @@ import './style.css'
 
 
 
+
+
+
+        class Button {
+            constructor(width:any, height: any, text: any){
+                this.width = width
+                this.height = height
+                this.text = text
+             
+            }
+        
+
+        showBtn() {
+            document.write(`<button style= "widht: ${this.widht}px; height: ${this.height}px;">${this.text}</button>`);
+        }
+    }
+    class BootstrapButton extends Button{
+        constructor(width: any, height: any, text: any, color: any){
+            super(width, height, text);
+            this.color = color;
+        }
+
+        showBtn() {
+            document.write(`<button class="btn btn-${this.color}" style="${this.widht}px; height: ${this.height}px;">${this.text}</button>`);
+
+        }
+    }
+
+    const regularButton = new Button(100,30,"Кнопка")
+    const bootstrapPrimaryButton = new BootstrapButton(120,40, "cc", "cc");
+    const  bootstrapSuccessButton = new BootstrapButton(120,40, "cc", "cc");
+
+    regularButton.showBtn()
+    bootstrapPrimaryButton.showBtn()
+    bootstrapSuccessButton.showBtn()
