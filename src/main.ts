@@ -951,7 +951,3 @@ import './style.css'
         // const string2 = "мир!";
         // const concatenatedString = concatenateStrings(string1, string2);
         // console.log(concatenatedString);
-
-
-
-
