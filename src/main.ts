@@ -1,5 +1,4 @@
 import './style.css'
-import { text } from 'stream/consumers'
 // alert('я JS')
 // var name = prompt ("What is your name?")
 // alert('Hello ' + name)
@@ -957,5 +956,161 @@ import { text } from 'stream/consumers'
         // console.log(concatenatedString);
 
 
+        // class Button {
+        //     constructor(width:any, height:any, text:any) {
+        //         this.width = width;
+        //         this.height = height;
+        //         this.text = text;
+        //     }
+            
+        //     showBtn() {
+        //         document.write(`<button style="width:${this.width}px; height:${this.height}px;">${this.text}</button>`);
+        //     }
+        //     }
+            
+        //   // Класс BootstrapButton, наследуется от Button
+        //     class BootstrapButton extends Button {
+        //     constructor(width:any, height:any, text:any, color:any) {
+        //         super(width, height, text);
+        //         this.color = color;
+        //     }
+            
+        //     showBtn() {
+        //         document.write(`<button style="width:${this.width}px; height:${this.height}px; background-color:${this.color};">${this.text}</button>`);
+        //     }
+        //     }
+            
+        //   // Пример использования
+        //     const button1 = new Button(100, 30, 'Обычная кнопка');
+        //     const button2 = new BootstrapButton(120, 40, 'Bootstrap кнопка', 'blue');
+            
+        //     button1.showBtn();
+        //     button2.showBtn();
 
 
+        // class GeometricFigure {
+        //     constructor(name:any) {
+        //         this.name = name;
+        //     }
+            
+        //     getInfo() {
+        //         return `Фигура: ${this.name}`;
+        //     }
+            
+        //     calculateArea() {
+        //         return "Площадь не определена для этой фигуры";
+        //     }
+            
+        //     calculatePerimeter() {
+        //         return "Периметр не определен для этой фигуры";
+        //     }
+        //     }
+                
+            // class Square extends GeometricFigure {
+            // constructor(side:any) {
+            //     super("Квадрат");
+            //     this.side = side;
+            // }
+            
+            // getInfo() {
+            //     return `${super.getInfo()}, Сторона: ${this.side}`;
+            // }
+            
+            // calculateArea() {
+            //   return `Площадь: ${this.side ** 2}`;
+            // }
+            
+            // calculatePerimeter() {
+            //   return `Периметр: ${4 * this.side}`;
+            // }
+            // }
+            
+            // class Rectangle extends GeometricFigure {
+            // constructor(width:any, height:any) {
+            //     super("Прямоугольник");
+            //     this.width = width;
+            //     this.height = height;
+            // }
+            
+            // getInfo() {
+            //     return `${super.getInfo()}, Ширина: ${this.width}, Высота: ${this.height}`;
+            // }
+            
+            // calculateArea() {
+            //   return `Площадь: ${this.width * this.height}`;
+            // }
+            
+            // calculatePerimeter() {
+            //   return `Периметр: ${2 * (this.width + this.height)}`;
+            // }
+            // }
+            
+            // class Triangle extends GeometricFigure {
+            // constructor(a:any, b:any, c:any) {
+            //     super("Треугольник");
+            //     this.a = a;
+            //     this.b = b;
+            //     this.c = c;
+            // }
+            
+            // getInfo() {
+            //     return `${super.getInfo()}, Сторона A: ${this.a}, Сторона B: ${this.b}, Сторона C: ${this.c}`;
+            // }
+            
+            // calculateArea() {
+            //     const s = (this.a + this.b + this.c) / 2;
+            //   const area = Math.sqrt(s * (s - this.a) * (s - this.b) * (s - this.c));
+            //     return `Площадь: ${area.toFixed(2)}`;
+            // }
+            
+            // calculatePerimeter() {
+            //     return `Периметр: ${this.a + this.b + this.c}`;
+            // }
+            // }
+            
+            // const figures = [
+            // new Square(4),
+            // new Rectangle(5, 8),
+            // new Triangle(3, 4, 5),
+            // ];
+            
+            // figures.forEach((figure, index) => {
+            // console.log(`Фигура ${index + 1}:`);
+            // console.log(figure.getInfo());
+            // console.log(figure.calculateArea());
+            // console.log(figure.calculatePerimeter());
+            // console.log("----------------------");
+            // });
+
+
+
+
+            // class ExtentedArray extends Array {
+            //     constructor(...elements:any) {
+            //         super(...elements);
+            //     }
+                
+            //     getString(separator:any) {
+            //         return this.join(separator);
+            //     }
+                
+            //     getHtml(tagName:any) {
+            //         if (tagName === 'li') {
+            //         const items = this.map(item => `<${tagName}>${item}</${tagName}>`);
+            //         return `<ul>${items.join('')}</ul>`;
+            //         } else {
+            //         return this.map(item => `<${tagName}>${item}</${tagName}>`).join('');
+            //         }
+            //     }
+            //     }
+                
+            //     const extendedArray = new ExtentedArray('apple', 'banana', 'cherry');
+                
+            //     const stringResult = extendedArray.getString(',');
+            //     console.log('Результат метода getString():', stringResult);
+                
+            //     const htmlResultLi = extendedArray.getHtml('li');
+            //     console.log('Результат метода getHtml("li"):', htmlResultLi);
+                
+            //     const htmlResultDiv = extendedArray.getHtml('div');
+            //     console.log('Результат метода getHtml("div"):', htmlResultDiv);
