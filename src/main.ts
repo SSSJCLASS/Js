@@ -1,4 +1,5 @@
 import './style.css'
+import { text } from 'stream/consumers'
 // alert('я JS')
 // var name = prompt ("What is your name?")
 // alert('Hello ' + name)
@@ -284,6 +285,7 @@ import './style.css'
 //   pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
 
 //   if (appDiv) appDiv.appendChild(pElelement) уощзщд
+  
 
 //   if (appDiv) appDiv.appendChild(pElelement)   
 
@@ -384,6 +386,7 @@ import './style.css'
 //   const pElelement = document.createElement('p')
 //   pElelement.textContent = uName ? `${uName}, добро пожаловать на сайт` : `Добро пожаловать на сайт`
 //   if (appDiv) appDiv.appendChild(pElelement) 
+  
 //   const button = document.createElement('button')
 //   button.textContent = isLogin ? 'LogOut' : 'Login'
 //   button.addEventListener('click', ()=>{
@@ -862,6 +865,7 @@ import './style.css'
 //   const href = new HtmlElement('a', true, 'More...')
 //   href.setAttr('href', 'https://www.lipsum.com/')
 //   href.setAttr('target', '_blank')
+  
 //   p.append(href)
 //   innerDiv.append(h3)
 //   innerDiv.append(img)
@@ -951,3 +955,7 @@ import './style.css'
         // const string2 = "мир!";
         // const concatenatedString = concatenateStrings(string1, string2);
         // console.log(concatenatedString);
+
+
+
+
