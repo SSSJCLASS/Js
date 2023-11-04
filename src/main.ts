@@ -956,6 +956,11 @@ import './style.css'
         // console.log(concatenatedString);
 
 
+
+
+
+
+
         // class Button {
         //     constructor(width:any, height:any, text:any) {
         //         this.width = width;
@@ -968,24 +973,30 @@ import './style.css'
         //     }
         //     }
             
-        //   // Класс BootstrapButton, наследуется от Button
-        //     class BootstrapButton extends Button {
-        //     constructor(width:any, height:any, text:any, color:any) {
-        //         super(width, height, text);
-        //         this.color = color;
-        //     }
+            // class BootstrapButton extends Button {
+            // constructor(width:any, height:any, text:any, color:any) {
+            //     super(width, height, text);
+            //     this.color = color;
+            // }
             
-        //     showBtn() {
-        //         document.write(`<button style="width:${this.width}px; height:${this.height}px; background-color:${this.color};">${this.text}</button>`);
-        //     }
-        //     }
+            // showBtn() {
+            //     document.write(`<button style="width:${this.width}px; height:${this.height}px; background-color:${this.color};">${this.text}</button>`);
+            // }
+            // }
             
-        //   // Пример использования
-        //     const button1 = new Button(100, 30, 'Обычная кнопка');
-        //     const button2 = new BootstrapButton(120, 40, 'Bootstrap кнопка', 'blue');
+            // const button1 = new Button(100, 30, 'Обычная кнопка');
+            // const button2 = new BootstrapButton(120, 40, 'Bootstrap кнопка', 'blue');
             
-        //     button1.showBtn();
-        //     button2.showBtn();
+            // button1.showBtn();
+            // button2.showBtn();
+
+
+
+
+
+
+
+
 
 
         // class GeometricFigure {
@@ -1085,6 +1096,11 @@ import './style.css'
 
 
 
+
+
+
+
+
             // class ExtentedArray extends Array {
             //     constructor(...elements:any) {
             //         super(...elements);
@@ -1114,3 +1130,48 @@ import './style.css'
                 
             //     const htmlResultDiv = extendedArray.getHtml('div');
             //     console.log('Результат метода getHtml("div"):', htmlResultDiv);
+
+
+
+
+
+
+
+
+
+            // class Circle {
+            //     constructor(radius:any) {
+            //       this.radius = radius;
+            //     }
+              
+            //     get radius():any {
+            //       return this.radius;
+            //     }
+              
+            //     set radius(value:any) {
+            //       if (value <= 0) {
+            //         console.error("Радиус не должен быть отрицательным");
+            //       } else {
+            //         this.radius = value;
+            //       }
+            //     }
+              
+            //     get diameter() {
+            //       return this.radius * 2;
+            //     }
+              
+            //     calculateArea() {
+            //       return Math.PI * Math.pow(this.radius, 2);
+            //     }
+              
+            //     calculateCircumference() {
+            //       return 2 * Math.PI * this.radius;
+            //     }
+            //   }
+              
+             
+            //   const circle = new Circle(5);
+            //   console.log(`Радиус окружности: ${circle.radius}`);
+            //   console.log(`Диаметр окружности: ${circle.diameter}`);
+            //   console.log(`Площадь окружности: ${circle.calculateArea().toFixed(2)}`);
+            //   console.log(`Длина окружности: ${circle.calculateCircumference().toFixed(2)}`);
