@@ -1175,3 +1175,7 @@ import './style.css'
             //   console.log(`Диаметр окружности: ${circle.diameter}`);
             //   console.log(`Площадь окружности: ${circle.calculateArea().toFixed(2)}`);
             //   console.log(`Длина окружности: ${circle.calculateCircumference().toFixed(2)}`);
+
+
+
+

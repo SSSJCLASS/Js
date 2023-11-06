@@ -1,34 +1,62 @@
-<!DOCTYPE html>
-
-<html lang="ru">
+<!-- <!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <title>Ввод имени без цифр</title>
 </head>
-<script type="module" src="src/main.ts"></script>
-<div id="app"> </div>
-<div style="display: grid; grid-template-rows: 2fr 1fr ;"></div>
-<div id="convas" style="position: relative;">
-<div id="rect" style="background-color: blue; position: absolute;"></div>
-</div>
-<div id="controls"></div>
-</div>
+<body>
+  <label for="username">Введите имя без цифр:</label>
+  <input type="text" id="username" oninput="filterInput(this)">
+  <p id="error-message" style="color: red;"></p>
 
-
-</body>
-
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
   <script>
-    
-    </script>
+    function filterInput(inputField) {
+      const username = inputField.value.replace(/\d/g, ''); // Удаляем все цифры из введенного текста
+      inputField.value = username;
+      const errorMessage = document.getElementById('error-message');
+
+      if (inputField.value !== username) {
+        errorMessage.textContent = "Введены цифры, они будут проигнорированы.";
+      } else {
+        errorMessage.textContent = "";
+      }
+    }
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+  <script>
+ 
+  </script>
+</head>
+<body>
+<div class="svet">
+  <div id ="round"></div>
+  <div id ="round1"></div>
+  <div id ="round2"></div>
+  <input id="btn" type="button" value="Next" onclick="func()">
+  <script>
+  function func(e)
+  {
+  var select = document.getElementById('svet');
+   
+  select.style.Color="gray";
+  <!-- if(round1) -->
+  <!-- select.style.round=="#df0000"; -->
+  <!-- if(round2) -->
+  <!-- select.style.round=="#df0000"; -->
+   
+  }
+  </script>
+   
+  </div>
   </body>
-</html>
+  </html>
