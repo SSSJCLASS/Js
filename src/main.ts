@@ -1,3 +1,4 @@
+import { table } from 'console'
 import './style.css'
 // alert('я JS')
 // var name = prompt ("What is your name?")
@@ -1202,7 +1203,6 @@ import './style.css'
 // На практике эти методы используются редко.
 
 // Проводим курсы по JavaScript и фреймворкам.
-
 
 
 
