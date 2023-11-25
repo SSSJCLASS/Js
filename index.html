@@ -266,7 +266,7 @@ field.addEventListener('click', function(e){
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -288,6 +288,28 @@ field.addEventListener('click', function(e){
   link.style.color = 'orange';
 </script>
 </body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<p id="number"> </p>
+<button id="b" onclick="random()"> Случайное число </button>
+</body>
+<script type="text/javascript">
+function random(){
+document.getElementById("number").innerHTML = Math.floor(Math.random()* 100)
+}
+</script>
 </html>
 
 
