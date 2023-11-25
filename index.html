@@ -294,7 +294,7 @@ field.addEventListener('click', function(e){
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -310,9 +310,59 @@ function random(){
 document.getElementById("number").innerHTML = Math.floor(Math.random()* 100)
 }
 </script>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+		
+    .raz{
+    position: relative;
+    height: 10em;
+    padding: 0 1em;
+    line-height: normal;
+    overflow: auto;
+    resize: both;
+    background: green;
+    font-size: 80%;
+    color: #fff;
+  }
+	</style>
+</head>
+<body>
+  <div id="raz4" class="raz"></div> 
+  <script>
+window.addEventListener('mousemove', function(e) {
+  // alert('screen: ' + e.screenX + 'x' + e.screenY + '\npage: ' + e.pageX + 'x' + e.pageY + '\nclient: ' + e.clientX + 'x' + e.clientY);
+
+  raz4.innerHTML = `screenX:${e.screenX}
+  <br>
+  screenY:${e.screenY}
+  <br>
+  pageX:${e.pageX}
+  <br>
+  pageY:${e.pageY}
+  <br>
+  clientX:${e.clientX}
+  <br>
+  clientY:${e.clientY}
+  `
+}, false);
+</script>
+<script>
+  window.addEventListener('click', function(e) {
+  alert('screen: ' + e.screenX + 'x' + e.screenY + '\npage: ' + e.pageX + 'x' + e.pageY + '\nclient: ' + e.clientX + 'x' + e.clientY);
+}, false)
+
+</script>
+</body>
 </html>
-
-
-
-
 
