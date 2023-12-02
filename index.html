@@ -106,6 +106,7 @@ document.body.onclick = function(e){
   <title>Document</title>
   <style>
    #field {
+      display: block;
       width: 200px;
       height: 150px;
       border: 10px groove black;
@@ -144,27 +145,33 @@ document.body.onclick = function(e){
 . . . . . . . . . . . . . . . . . . . . . . . .
   </div>
   <script>    
-      var field = document.getElementById('field');
-var ball  = document.getElementById('ball');
-
-field.addEventListener('click', function(e){
+     ball.onmousedown = function(event) { 
   
-    var fieldCoords = field.getBoundingClientRect();
+  ball.style.position = 'absolute';
+  ball.style.zIndex = 1000;
+  
+  document.body.append(ball);
+  
 
-    var top = fieldCoords.top + field.clientTop
+  moveAt(event.pageX, event.pageY);
 
-    var left = fieldCoords.left + field.clientLeft
+  function moveAt(pageX, pageY) {
+    ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
+    ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
+  }
 
-  var ballLeft = ball.clientWidth ;
-  var ballTop = ball.clientHeight ;
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+  }
+ 
+  document.addEventListener('mousemove', onMouseMove);
 
-  var clinX = e.clientX - left;
-  var clinY = e.clientY - top;
+  ball.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove);
+    ball.onmouseup = null;
+  };
 
-    ball.style.left =  clinX -17 + 'px';
-    ball.style.top = clinY -22  + 'px';
-    
-});
+};
   </script>
 </body>
 </html> -->
@@ -369,7 +376,7 @@ window.addEventListener('mousemove', function(e) {
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <body>
 
@@ -381,5 +388,114 @@ window.addEventListener('mousemove', function(e) {
     alert(elem.getAttribute('data-widget-name'));
   </script>
 </body>
-</html>
+</html> -->
 
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  
+</head>
+
+<body>
+      <div id ='calendaric'></div>
+  <script>
+function calendar () {
+    const monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+        "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+    ];
+    let mon = prompt('Какой сейчас месяц по счёту?');
+    month = mon - 1;
+    year = prompt('Какой сейчас год?');
+    let calendaricForYou = new Date( year, month );
+    let elem = document.getElementById('calendaric');
+    let table = '<table id = tableOfDays><tr><td class = RedCat><button id = YearBefore><<</button></td><td class = RedCat><button id = MonthBefore><' +
+        '</button></td><td colspan=3 id = forMonth class = RedCat></td>' +
+        '<td class = RedCat><button id = MonthAfter>></button></td><td class = RedCat><button id = YearAfter>>>' +
+        '</button></td></tr><tr id = hiddenDates><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>';
+
+    for (let i = 0; i < getDay(calendaricForYou); i++) {
+        table += '<td></td>';
+    }
+
+    while(calendaricForYou.getMonth() ===  month){
+        table += '<td>'+calendaricForYou.getDate()+'</td>';
+        if(calendaricForYou.getDay() % 7 === 0){
+            table += '</tr><tr>';
+        }
+        calendaricForYou.setDate(calendaricForYou.getDate() + 1);
+    }
+    if(getDay(calendaricForYou) !== 0 ){
+        for(let i = calendaricForYou.getDay(); i <= 7; i++){
+            table += '<td></td>';
+        }
+    }
+
+    table += '</tr></table>';
+    elem.innerHTML = table;
+
+    let hiddenTR = document.getElementById('hiddenDates');
+    hiddenTR.style.display = 'none';
+    let tableOfDays = document.getElementById('tableOfDays');
+    tableOfDays.style.borderCollapse = 'collapse';
+    tableOfDays.style.margin = '0 auto';
+    let otherTD = document.getElementsByTagName("td");
+    for (let i = 0; i<otherTD.length; i++){
+        let other_TD = otherTD[i];
+        other_TD.style.borderStyle = 'solid';
+        other_TD.style.borderColor = '#dddddd';
+        other_TD.style.borderWidth = '2px';
+        other_TD.style.padding = '3px';
+        other_TD.style.textAlign = 'center';
+        other_TD.style.backgroundColor = '#eee';
+        other_TD.style.width = '30px';
+        other_TD.style.height = '30px';
+        for(let j = 0; j>getDay(calendaricForYou); j++){
+            other_TD.style.backgroundColor = 'white!important';
+
+        }
+    }
+    let holidayTD = document.querySelectorAll("td:nth-child(n+6)");
+    for (let i = 0; i<holidayTD.length; i++) {
+        let holiday_TD = holidayTD[i];
+        holiday_TD.style.backgroundColor = '#4257!important';
+    }
+    let forMonth = document.getElementById('forMonth');
+    forMonth.style.color = 'white';
+    forMonth.style.textTransform = 'uppercase';
+    forMonth.innerHTML = monthNames[month];
+
+    let button = document.getElementsByTagName("button");
+    for (let i = 0; i<button.length; i++) {
+        let button_ = button[i];
+        button_.style.backgroundColor = 'white';
+        button_.style.borderRadius = '10px';
+        button_.style.cursor = 'pointer';
+        button_.style.borderStyle = 'solid';
+        button_.style.outline = 'none';
+    }
+    let redTD = document.getElementsByClassName('RedCat');
+    for (let i = 0; i<redTD.length; i++) {
+        let red_TD = redTD[i];
+        red_TD.style.backgroundColor = '#e33';
+    }
+    let monthBefore = document.getElementById('MonthBefore');
+    monthBefore.onclick = function(){
+        month = mon - 2;
+    }
+    function getDay(date) {
+    let day = date.getDay();
+    if (day === 0) day = 7;
+    return day - 1;
+}
+
+calendar();
+}
+
+  </script>
+<div id ='calendaric'></div>
+</body>
+</html>
