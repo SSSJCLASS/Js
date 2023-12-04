@@ -1205,5 +1205,4 @@ import './style.css'
 // Проводим курсы по JavaScript и фреймворкам.
 
 
-
-
+alert( document.documentElement.scrollTop );
