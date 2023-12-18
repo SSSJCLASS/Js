@@ -65,7 +65,7 @@
   
 
 
-<html>
+<!-- <html>
   <head>
   <meta charset="utf-8">
   <title></title>
@@ -90,7 +90,7 @@ document.body.onclick = function(e){
 }
 </script>
   </body>
-</html>
+</html> -->
 
 
 
@@ -98,7 +98,7 @@ document.body.onclick = function(e){
 
 
 
-<!-- <!DOCTYPE html>
+<!-- <!DOCTYPE html>`
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -878,3 +878,66 @@ calendar();
 
 </body>
 </html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .selected {
+      background: #0f0;
+    }
+
+    li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <ul id="ul">
+    <li>Кристофер Робин</li>
+    <li>Винни Пух</li>
+    <li>Тигра</li>
+    <li>Кенга</li>
+    <li>Кролик. Просто Кролик.</li>
+  </ul>
+
+  <script>
+    ul.onclick = function(event) {
+      if (event.target.tagName != "LI") return;
+
+      if (event.ctrlKey || event.metaKey) {
+        toggleSelect(event.target);
+      } else {
+        singleSelect(event.target);
+      }
+
+    }
+
+    ul.onmousedown = function() {
+      return false;
+    };
+
+    function toggleSelect(li) {
+      li.classList.toggle('selected');
+    }
+
+    function singleSelect(li) {
+      let selected = ul.querySelectorAll('.selected');
+      for(let elem of selected) {
+        elem.classList.remove('selected');
+      }
+      li.classList.add('selected');
+    }
+
+  </script>
+
+</body>
+</html>
