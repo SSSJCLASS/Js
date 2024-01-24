@@ -1144,11 +1144,11 @@ import './style.css'
             //     constructor(radius:any) {
             //       this.radius = radius;
             //     }
-              
+            
             //     get radius():any {
             //       return this.radius;
             //     }
-              
+            
             //     set radius(value:any) {
             //       if (value <= 0) {
             //         console.error("Радиус не должен быть отрицательным");
@@ -1156,21 +1156,21 @@ import './style.css'
             //         this.radius = value;
             //       }
             //     }
-              
+            
             //     get diameter() {
             //       return this.radius * 2;
             //     }
-              
+            
             //     calculateArea() {
             //       return Math.PI * Math.pow(this.radius, 2);
             //     }
-              
+            
             //     calculateCircumference() {
             //       return 2 * Math.PI * this.radius;
             //     }
             //   }
-              
-             
+            
+            
             //   const circle = new Circle(5);
             //   console.log(`Радиус окружности: ${circle.radius}`);
             //   console.log(`Диаметр окружности: ${circle.diameter}`);
